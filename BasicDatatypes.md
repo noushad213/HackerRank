@@ -8,3 +8,7 @@ unique_scores = sorted(set(score for name, score in students)) #students is an a
 # Step 2: Get second lowest score
 second_lowest = unique_scores[1] #the [1] means the 2nd element in 0 indexing (2nd lowest value)
 
+---
+
+if you have have a **dictionary** and need to add keys and values to it
+```dictionary[key] = value```
