@@ -11,4 +11,6 @@ second_lowest = unique_scores[1] #the [1] means the 2nd element in 0 indexing (2
 ---
 
 if you have have a **dictionary** and need to add keys and values to it
-```dictionary[key] = value```
+```python
+dictionary[key] = value
+```
