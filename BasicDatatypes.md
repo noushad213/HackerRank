@@ -48,4 +48,11 @@ for _ in range(n):
 print(d)
 
 ```
+```python
+print("{:.2f}".format(avg))
+```
+This is string formatting.
 
+It means:
+
+**“Take the value of avg and format it to 2 decimal places before printing.”**
