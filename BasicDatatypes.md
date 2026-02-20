@@ -49,7 +49,7 @@ print(d)
 
 ```
 
-if you have to display numbers upto 2 decimal points we can do:
+If you have to display numbers upto 2 decimal points we can do:
 
 ```python
 print("{:.2f}".format(avg))
