@@ -72,8 +72,8 @@ The Syntax
 # The function takes three main arguments:
 getattr(object,"name_of_attribute",default)
 ```
-    - object: The thing you are looking into (like a list, a string, or a class).
+    * object: The thing you are looking into (like a list, a string, or a class).
 
-    - "name_of_attribute": A string containing the name of the method or variable you want.
+    * "name_of_attribute": A string containing the name of the method or variable you want.
 
-    - default (Optional): What to return if the name isn't found (prevents the code from crashing).
+    * default (Optional): What to return if the name isn't found (prevents the code from crashing).
