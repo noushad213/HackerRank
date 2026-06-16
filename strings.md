@@ -1,4 +1,4 @@
-# 6️⃣ Advanced String Manipulation & Mutability
+# Advanced String Manipulation & Mutability
 
 ## 🔹 Understanding String Immutability
 
@@ -62,7 +62,7 @@ The syntax uses the string before the dot as the **glue (separator)** to combine
 
 ---
 
-## 7️⃣ String Formatting: f-Strings
+## String Formatting: f-Strings
 
 **f-strings** (formatted string literals) cleanly evaluate variables directly inside curly braces `{}`.
 
@@ -78,3 +78,35 @@ print(f"Hello {first} {last}! You just delved into python.")
 
 * **`.format()` method:** `"Hello {}!".format(name)`
 * **Concatenation:** `"Hello " + name + "!"`
+
+# Counting Overlapping Substrings
+
+Python's built-in `string.count()` does **not** count overlapping matches. To capture overlaps, use a manual sliding window approach with string slicing.
+
+## ✅ The Sliding Window Implementation
+
+```python
+def count_substring(string, sub_string):
+    count = 0
+    sub_len = len(sub_string)
+    
+    # Restrict range to prevent the window from overshooting the string length
+    for i in range(len(string) - sub_len + 1):
+        if string[i : i + sub_len] == sub_string:
+            count += 1
+            
+    return count
+
+```
+
+## 🧠 Core Revision Mechanics
+
+### 1. The Slice Formulator: `[i : i + sub_len]`
+
+* Captures a precise window matching the size of the target substring.
+* As `i` increments by 1, the window slides right, catching both overlapping and distinct matches.
+
+### 2. The Boundary Constraint: `len(string) - sub_len + 1`
+
+* **Why the subtraction?** Finds the absolute last index where a valid substring match can possibly start.
+* **Why the `+ 1`?** Python's `range(stop)` is exclusive. Adding `1` forces the loop to actually execute and check that final valid index.
