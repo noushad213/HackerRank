@@ -110,3 +110,20 @@ def count_substring(string, sub_string):
 
 * **Why the subtraction?** Finds the absolute last index where a valid substring match can possibly start.
 * **Why the `+ 1`?** Python's `range(stop)` is exclusive. Adding `1` forces the loop to actually execute and check that final valid index.
+
+# String Validation & The `any()` Function
+
+Python provides built-in validation methods to inspect individual characters:
+* `.isalnum()` ➡️ `True` if alphanumeric (a-z, A-Z, 0-9)
+* `.isalpha()` ➡️ `True` if alphabetic (a-z, A-Z)
+* `.isdigit()` ➡️ `True` if digit (0-9)
+* `.islower()` ➡️ `True` if lowercase letter
+* `.isupper()` ➡️ `True` if uppercase letter
+
+## ⚠ Competitive Programming Trap: Entire vs. Partial Match
+Evaluating methods on the whole string (e.g., `s.isalpha()`) checks if **all** characters pass. To check if a string merely **contains** at least one matching character, combine the validation method with `any()`.
+
+```python
+# Returns True if at least one character satisfies the condition
+print(any(char.isalpha() for char in s))
+
