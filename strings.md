@@ -127,3 +127,14 @@ Evaluating methods on the whole string (e.g., `s.isalpha()`) checks if **all** c
 # Returns True if at least one character satisfies the condition
 print(any(char.isalpha() for char in s))
 
+# String Alignment: ljust, center, rjust
+
+These methods pad a string to a target `width` using a specific fill character (defaults to a space).
+
+```python
+text = "H"
+width = 5
+
+print(text.ljust(width, '-'))   # ➡️ "H----" (Left-aligned)
+print(text.center(width, '-'))  # ➡️ "--H--" (Centered)
+print(text.rjust(width, '-'))   # ➡️ "----H" (Right-aligned)
