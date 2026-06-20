@@ -138,3 +138,61 @@ width = 5
 print(text.ljust(width, '-'))   # ➡️ "H----" (Left-aligned)
 print(text.center(width, '-'))  # ➡️ "--H--" (Centered)
 print(text.rjust(width, '-'))   # ➡️ "----H" (Right-aligned)
+
+
+Here is the clean, high-yield concept block for your **`strings.md`** file, capturing both methods perfectly.
+
+---
+
+# Text Wrapping: `textwrap` vs. Manual Slicing
+
+To break a long string into a paragraph of a fixed maximum width, you can use Python's built-in module or write a manual loop using a step index.
+
+---
+```
+##  Method 1: The `textwrap` Module (Built-in & Clean)
+
+Python provides the `textwrap` module specifically designed for text paragraph formatting.
+
+```python
+import textwrap
+
+text = "ABCDEFGHIJKL"
+width = 4
+
+# 1. textwrap.wrap() -> Returns a LIST of string chunks
+chunks = textwrap.wrap(text, width)  
+# ➡️ ['ABCD', 'EFGH', 'IJKL']
+
+# 2. textwrap.fill() -> Returns a SINGLE string separated by newlines (\n)
+paragraph = textwrap.fill(text, width)  
+# ➡️ ABCD
+#     EFGH
+#     IJKL
+
+```
+
+---
+
+##  Method 2: Manual Slicing with a Range Step
+
+If built-in modules are restricted, you can manually build paragraphs using `range(start, stop, step)` combined with string slicing.
+
+```python
+def wrap(string, max_width):
+    chunks = []
+    
+    # Loop from 0 to len(string), jumping forward by max_width each time
+    for i in range(0, len(string), max_width):
+        chunks.append(string[i : i + max_width])
+        
+    return "\n".join(chunks)
+
+```
+
+### 🧠 Slicing Mechanics (`string = "ABCDEFGHIJKL"`, `max_width = 4`)
+
+* **Iteration 1 (`i = 0`):** `string[0:4]` ➡️ `"ABCD"`
+* **Iteration 2 (`i = 4`):** `string[4:8]` ➡️ `"EFGH"`
+* **Iteration 3 (`i = 8`):** `string[8:12]` ➡️ `"IJKL"`
+* **Final step:** `"\n".join(chunks)` welds them together vertically.
