@@ -196,3 +196,26 @@ def wrap(string, max_width):
 * **Iteration 2 (`i = 4`):** `string[4:8]` ➡️ `"EFGH"`
 * **Iteration 3 (`i = 8`):** `string[8:12]` ➡️ `"IJKL"`
 * **Final step:** `"\n".join(chunks)` welds them together vertically.
+
+
+# 12️⃣ Advanced Grid & Canvas Layouts
+
+When designing repeating geometrical patterns within a fixed grid canvas (width $M$, height $N$):
+
+## ✅ Core Blueprint 
+
+```python
+# N = rows, M = columns (N must be odd, M = 3 * N)
+N, M = 9, 27
+pattern = ".|."
+
+# Top Half: Increments by odd steps (1, 3, 5...)
+for i in range(1, N, 2):
+    print((pattern * i).center(M, '-'))
+
+# Center Element
+print("WELCOME".center(M, '-'))
+
+# Bottom Half: Decrements symmetrically back down
+for i in range(N - 2, 0, -2):
+    print((pattern * i).center(M, '-'))
